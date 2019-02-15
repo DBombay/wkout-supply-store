@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SecuredController extends AbstractController
 {
     /**
-     * @Route("/secured", name="secured")
+     * @Route("api/public", name="public")
      */
     public function publicAction()
     {
