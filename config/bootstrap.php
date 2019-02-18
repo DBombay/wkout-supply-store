@@ -5,7 +5,7 @@ use Symfony\Component\Dotenv\Dotenv;
 require dirname(__DIR__).'/vendor/autoload.php';
 
 // Include Composer Autoload (relative to project root).
-require_once "vendor/autoload.php";
+require_once "../vendor/autoload.php";
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
