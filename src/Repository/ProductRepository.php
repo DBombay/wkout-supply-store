@@ -22,7 +22,7 @@ class ProductRepository extends ServiceEntityRepository
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */
-    /*
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('p')
@@ -34,9 +34,7 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
     public function findOneBySomeField($value): ?Product
     {
         return $this->createQueryBuilder('p')
@@ -46,5 +44,32 @@ class ProductRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
+    public function transform(Product $product)
+    {
+        return [
+            'id'    => (int) $product->getId(),
+            'name' => (string) $product->getName(),
+            'description' => (string) $product->getDescription(),
+            'price' => (float) $product->getPrice(),
+            'salePrice' => (float) $product->getSalePrice(),
+            'active' => (boolean) $product->getActive(),
+            'onSale' => (boolean) $product->getOnSale(),
+            'productImage' => (string) $product->getProductImage(),
+            'category' => (int) $product->getCategory(),
+            'subCategory' => (int) $product->getSubCategory()
+        ];
+    }
+
+    public function transformAll()
+    {
+        $products = $this->findAll();
+        $productsArray = [];
+
+        foreach ($products as $product) {
+            $productsArray[] = $this->transform($product);
+        }
+
+        return $productsArray;
+    }
 }
