@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import HomeContainer from "./containers/HomeContainer.js";
+import {HomeNav} from "./components"
 
 class App extends React.Component {
     constructor(props) {
@@ -10,9 +11,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                {
-                    //Navbar
-                }
+                <HomeNav/>
                 <HomeContainer/>
             </div>
         )
