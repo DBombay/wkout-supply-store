@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Category
+class SubCategoryOld
 {
     /**
      * @Id
@@ -16,14 +16,8 @@ class Category
     private $description;
 
     /**
-     * @OneToMany(targetEntity="SubCategory")
-     * @JoinColumn(name="SubCategory_id", referencedColumnName="id")
-     */
-    private $subcategory;
-
-    /**
      * @OneToMany(targetEntity="Products")
-     * @JoinColumn(name="Product_id", referencedColumnName="id")
+     * @JoinColumn
      */
     private $product;
 }

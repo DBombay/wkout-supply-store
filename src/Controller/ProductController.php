@@ -20,9 +20,9 @@ class ProductController extends ApiController
                 'Sale Price' => 0.1,
                 'Active' => true,
                 'On Sale' => true,
-                'Category' => 1,
-                'Sub-Category' => 1,
-                'Product Image' => 'http://dummyimage.com/100x100.jpg/cc0000/ffffff'
+                'CategoryOld' => 1,
+                'Sub-CategoryOld' => 1,
+                'ProductOld Image' => 'http://dummyimage.com/100x100.jpg/cc0000/ffffff'
             ]
         ]);
     }

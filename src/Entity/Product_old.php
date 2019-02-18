@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-class Product
+class ProductOld
 {
     /**
      * @Id
