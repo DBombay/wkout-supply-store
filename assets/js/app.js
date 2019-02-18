@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import HomeContainer from "./containers/HomeContainer.js";
 
 class App extends React.Component {
@@ -10,13 +9,14 @@ class App extends React.Component {
 
     render() {
         return (
-            <BrowserRouter>
-                <div>
-                    <HomeContainer/>
-                </div>
-            </BrowserRouter>
+            <div>
+                {
+                    //Navbar
+                }
+                <HomeContainer/>
+            </div>
         )
     }
 }
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App/>, document.getElementById('root'));
