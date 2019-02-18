@@ -51,7 +51,6 @@ class SubCategoryController extends ApiController
         $subCategory->setDescription($request->get('description'));
         $subCategory->setCategory($request->get('category'));
 
-
         $em->persist($subCategory);
         $em->flush();
 
