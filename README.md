@@ -3,8 +3,25 @@ Workout Supply Store
 
 Description
 --
-Built as an exercise to learn some PHP and Symfony. I built the backend to be a PHP API with React and Bootstrap as
-the front end.
+Built as an exercise to learn some PHP and Symfony. The backend is a PHP API with React and Bootstrap as
+the front end. Database is MySql.
+
+
+ORM
+---
+Entities, Tables, and ORM were all generated and controlled with composer's helpers:
+
+Entities, Repositories, and Relations built through:
+```
+php bin/console make:entity
+```
+
+Migrations and Schema built through:
+
+```
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+```
 
 To Run
 --
