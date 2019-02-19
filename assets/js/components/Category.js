@@ -28,7 +28,7 @@ export default class Category extends React.Component {
     }
 
     toggle() {
-        this.setState({isOpen: !this.state.isOpen})
+        this.setState({menuOpen: !this.state.menuOpen})
     }
 
     render() {
@@ -39,10 +39,10 @@ export default class Category extends React.Component {
                     <div className="col-5 float-right">
                         <em>{this.props.description}</em>
                         <span
-                            className={`fa fa-lg ${this.state.isOpen ? 'fa-caret-down' : 'fa-caret-left'} float-right align-self-center`}/>
+                            className={`fa fa-lg ${this.state.menuOpen ? 'fa-caret-down' : 'fa-caret-left'} float-right align-self-center`}/>
                     </div>
                 </CardBody>
-                <Collapse isOpen={this.state.isOpen}>
+                <Collapse isOpen={this.state.menuOpen}>
                     <hr className="my-2"/>
                     <CardBody>
                         {this.state.subCategories}

@@ -11,28 +11,29 @@ import {
     DropdownItem,
     DropdownMenu
 } from 'reactstrap'
+import {CreateObjectModal} from "./index";
 
 export default class HomeNav extends React.Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            isOpen: false
+            menuOpen: false,
+            modalOpen: false
         };
     }
 
-    toggle() {
-        this.setState(prevState => ({
-            isOpen: !prevState.isOpen
-        }));
+    toggle(event) {
+        this.setState({[event.target.name]: event.target.value});
     }
+
 
     render() {
         return (
-            <Navbar color="dark" dark expand="sm">
+            <Navbar color="dark" dark expand="lg">
                 <NavbarBrand href="/" className='text-white'>Work In-and-Out</NavbarBrand>
-                <NavbarToggler onClick={this.toggle}/>
-                <Collapse isOpen={this.state.isOpen} navbar>
+                <NavbarToggler onClick={() => {this.toggle({target: {name: 'menuOpen', value: !this.state.menuOpen}})}}/>
+                <Collapse isOpen={this.state.menuOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
                             <UncontrolledDropdown nav inNavbar>
@@ -40,7 +41,9 @@ export default class HomeNav extends React.Component {
                                     Create New...
                                 </DropdownToggle>
                                 <DropdownMenu right>
-                                    <DropdownItem>Category</DropdownItem>
+                                    <DropdownItem onClick={() => {this.toggle({target: {name: 'modalOpen', value: !this.state.modalOpen}})}}>
+                                        Category
+                                    </DropdownItem>
                                     <DropdownItem>Sub-Category</DropdownItem>
                                     <DropdownItem>Product</DropdownItem>
                                 </DropdownMenu>
@@ -48,6 +51,10 @@ export default class HomeNav extends React.Component {
                         </NavItem>
                     </Nav>
                 </Collapse>
+                <CreateObjectModal
+                    isOpen={this.state.modalOpen}
+                    toggle={() => {this.toggle({target: {name: 'modalOpen', value: !this.state.modalOpen}})}}
+                />
             </Navbar>
         )
     }

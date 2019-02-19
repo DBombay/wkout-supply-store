@@ -51,11 +51,11 @@ class SubCategoryController extends ApiController
         $subCategory->setDescription($request->get('description'));
 
         //TODO Fetch a specific category and assign it as the parent of the subcategory
-//        $category = $em->find(Category::class, $request->get('category_id'));
-//        $category = $this->getDoctrine()
-//            ->getRepository(Category::class)
-//            ->find($id);
-//        $subCategory->setCategory($request->get($category));
+        $category = $em->find($request->get('category_id'));
+        $category = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->find($id);
+        $subCategory->setCategory($request->get($category));
 
         $em->persist($subCategory);
         $em->flush();
