@@ -11,7 +11,7 @@ export default function Hero() {
                 </p>
                 <hr className="my-2"/>
                 <em>
-                    We don't do frills here. We don't even have a marketing department or copy editors! All we have is
+                    We don't do frills here! We don't even have a marketing department or copy editors! All we have is
                     top of the line gear and an excess of exclamation points!!!
                 </em>
             </Jumbotron>

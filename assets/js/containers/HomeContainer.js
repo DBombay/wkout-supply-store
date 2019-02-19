@@ -1,5 +1,5 @@
 import React from 'react'
-import {Hero} from "../components"
+import {CategoriesCollection, Hero} from "../components"
 
 export default class HomeContainer extends React.Component {
     constructor(props) {
@@ -10,6 +10,7 @@ export default class HomeContainer extends React.Component {
         return(
             <div className="container">
                 <Hero />
+                <CategoriesCollection />
             </div>
         )
     }

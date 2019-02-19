@@ -28,11 +28,11 @@ export default class HomeNav extends React.Component {
 
     render() {
         return (
-            <Navbar color="dark" expand="md">
-                <NavbarBrand href="/" className='text-white'>Work In and Out</NavbarBrand>
+            <Navbar color="dark" dark>
+                <NavbarBrand href="/" className='text-white'>Work In-and-Out</NavbarBrand>
                 <NavbarToggler onClick={this.toggle}/>
                 <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
+                    <Nav className="mr-auto" navbar>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret className="text-white">
                                 See All...
