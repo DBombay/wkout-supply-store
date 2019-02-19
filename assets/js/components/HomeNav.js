@@ -3,6 +3,7 @@ import {
     Nav,
     Navbar,
     NavbarBrand,
+    NavItem,
     NavbarToggler,
     Collapse,
     UncontrolledDropdown,
@@ -28,27 +29,23 @@ export default class HomeNav extends React.Component {
 
     render() {
         return (
-            <Navbar color="dark" dark>
+            <Navbar color="dark" dark expand="sm">
                 <NavbarBrand href="/" className='text-white'>Work In-and-Out</NavbarBrand>
                 <NavbarToggler onClick={this.toggle}/>
                 <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret className="text-white">
-                                See All...
-                            </DropdownToggle>
-                            <DropdownMenu right>
-                                <DropdownItem>
-                                    Categories
-                                </DropdownItem>
-                                <DropdownItem>
-                                    Sub-Categories
-                                </DropdownItem>
-                                <DropdownItem>
-                                    Products
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </UncontrolledDropdown>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <UncontrolledDropdown nav inNavbar>
+                                <DropdownToggle nav caret className="text-white">
+                                    Create New...
+                                </DropdownToggle>
+                                <DropdownMenu right>
+                                    <DropdownItem>Category</DropdownItem>
+                                    <DropdownItem>Sub-Category</DropdownItem>
+                                    <DropdownItem>Product</DropdownItem>
+                                </DropdownMenu>
+                            </UncontrolledDropdown>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
