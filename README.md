@@ -23,6 +23,26 @@ php bin/console make:migration
 php bin/console doctrine:migrations:migrate
 ```
 
+Current Task/Blocker
+---
+I'm trying to get `SubCategory` to persist a parent `Category` when initalizing. The most recent error I'm hitting is
+`Attempted to call an undefined method named "addSubCategory" of class "Doctrine\ORM\PersistentCollection".` while attempting the following block:
+
+```php
+    $subCategory = new SubCategory;
+    $subCategory->setName($request->get('name'));
+    $subCategory->setDescription($request->get('description'));
+
+
+    $category = $em->find('App\\Entity\\Category', $request->get('category_id'));
+    $category->getSubCategories()->addSubCategory($subCategory); //Error hits here
+    $em->persist($subCategory);
+    $em->persist($category);
+
+    $em->flush();
+    return $this->respondCreated($subCategoryRepository->transform($subCategory));
+```
+
 To Run
 --
 1. Clone the Repo down
