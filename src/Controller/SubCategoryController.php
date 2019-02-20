@@ -52,11 +52,11 @@ class SubCategoryController extends ApiController
 
         //TODO Fetch a specific category and assign it as the parent of the subcategory
         $category = $em->find('App\\Entity\\Category', $request->get('category_id'));
-        $em->persist($subCategory);
         $category->getSubCategories()->addSubCategory($subCategory);
+        $em->persist($subCategory);
         $em->persist($category);
-        $em->flush();
 
+        $em->flush();
         return $this->respondCreated($subCategoryRepository->transform($subCategory));
     }
 }

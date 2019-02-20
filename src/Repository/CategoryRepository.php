@@ -50,7 +50,7 @@ class CategoryRepository extends ServiceEntityRepository
             'id'    => (int) $category->getId(),
             'name' => (string) $category->getName(),
             'description' => (string) $category->getDescription(),
-            'subCategories' =>(array) $category->getSubCategory()
+            'subCategories' =>(array) $category->getSubCategories()
         ];
     }
 
