@@ -51,7 +51,6 @@ class SubCategoryRepository extends ServiceEntityRepository
             'id'    => (int) $subCategory->getId(),
             'name' => (string) $subCategory->getName(),
             'description' => (string) $subCategory->getDescription(),
-            'category' => (int) $subCategory->getCategory(),
         ];
     }
 
