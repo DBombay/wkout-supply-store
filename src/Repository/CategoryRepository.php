@@ -22,7 +22,6 @@ class CategoryRepository extends ServiceEntityRepository
     // /**
     //  * @return Category[] Returns an array of Category objects
     //  */
-    /*
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('c')
@@ -34,9 +33,7 @@ class CategoryRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
     public function findOneBySomeField($value): ?Category
     {
         return $this->createQueryBuilder('c')
@@ -46,5 +43,26 @@ class CategoryRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
+    public function transform(Category $category)
+    {
+        return [
+            'id'    => (int) $category->getId(),
+            'name' => (string) $category->getName(),
+            'description' => (string) $category->getDescription(),
+            'subCategories' =>(array) $category->getSubCategories()
+        ];
+    }
+
+    public function transformAll()
+    {
+        $categories = $this->findAll();
+        $categoriesArray = [];
+
+        foreach ($categories as $category) {
+            $categoriesArray[] = $this->transform($category);
+        }
+
+        return $categoriesArray;
+    }
 }

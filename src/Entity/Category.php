@@ -76,14 +76,14 @@ class Category
     /**
      * @return Collection|SubCategory[]
      */
-    public function getSubCategory(): Collection
+    public function getSubCategories(): Collection
     {
         return $this->subCategory;
     }
 
     public function addSubCategory(SubCategory $subCategory): self
     {
-        if (!$this->subCategory->contains($subCategory)) {
+        if ($this->subCategory->contains($subCategory)) {
             $this->subCategory[] = $subCategory;
             $subCategory->setCategory($this);
         }

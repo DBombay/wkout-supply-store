@@ -22,7 +22,7 @@ class SubCategoryRepository extends ServiceEntityRepository
     // /**
     //  * @return SubCategory[] Returns an array of SubCategory objects
     //  */
-    /*
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('s')
@@ -34,9 +34,7 @@ class SubCategoryRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
     public function findOneBySomeField($value): ?SubCategory
     {
         return $this->createQueryBuilder('s')
@@ -46,5 +44,25 @@ class SubCategoryRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
+    public function transform(SubCategory $subCategory)
+    {
+        return [
+            'id'    => (int) $subCategory->getId(),
+            'name' => (string) $subCategory->getName(),
+            'description' => (string) $subCategory->getDescription(),
+        ];
+    }
+
+    public function transformAll()
+    {
+        $subCategories = $this->findAll();
+        $subCategoriesArray = [];
+
+        foreach ($subCategories as $subCategory) {
+            $subCategoriesArray[] = $this->transform($subCategory);
+        }
+
+        return $subCategoriesArray;
+    }
 }
